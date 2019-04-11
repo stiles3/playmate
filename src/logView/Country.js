@@ -1,19 +1,82 @@
 import React, { Component } from 'react'
-import {TextField,Button,Paper,MuiThemeProvider,AppBar,Toolbar,Typography} from '@material-ui/core'
+import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
+import Paper from '@material-ui/core/Paper'
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
+import Typography from '@material-ui/core/Typography'
+import Dialog from '@material-ui/core/Dialog'
+import DialogTitle from '@material-ui/core/DialogTitle'
+import DialogContent from '@material-ui/core/DialogContent'
+import DialogActions from '@material-ui/core/DialogActions'
+import DialogContentText from '@material-ui/core/DialogContentText'
+import EditProfile from '../regView/EditProfile'
+import {FormErrors} from './FormErrors'
+
 
 export class Country extends Component {
   state = {
     country: '',
-    code:'',
+    code:'+229',
     phone:'',
-   
+    open: false,
+    open1: false,
+    phoneNumber:{code:'',phone:''},
+   // formErrors: {phone: ''},
+   //   phoneValid: false,
+    //  formValid: false
+    }
     
-  }
   handleChange = name => event => {
     console.log(event.target.value)
     this.setState({
       [name]: event.target.value
     });
+  };
+  // validateField(fieldName, value) {
+  //   let fieldValidationErrors = this.state.formErrors;
+  //   let phoneValid = this.state.emailValid;
+
+  //   switch(fieldName) {
+  //     case 'phone':
+  //       phoneValid =value.length >= 6;
+  //       fieldValidationErrors.phone = phoneValid ? '' : ' is invalid';
+  //       break;
+  //     default:
+  //       break;
+  //   }
+  //   this.setState({formErrors: fieldValidationErrors,
+  //     phoneValidValid: phoneValid,
+  //    }, this.validateForm);
+  // }
+
+  // validateForm() {
+  //   this.setState({formValid: this.state.phoneValid });
+  // }
+
+  // errorClass(error) {
+  //   return(error.length === 0 ? '' : 'has-error');
+  // }
+
+  // isPhoneValid=(phone,code) => {
+  //  if(code == "+234"){
+  //   var phoneno = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;
+  //  }
+  // }
+  handleClickOpen = () => {
+    this.setState({ open: true });
+  };
+
+  handleClose = () => {
+    this.setState({ open: false });
+  };
+  handleClickOpen1 = () => {
+    this.setState({ open1: true });
+    this.setState({open: false})
+  };
+  handleClose1 = () => {
+    this.setState({ open1: false });
   };
   render() {
     const {code,phone} = this.state
@@ -1236,6 +1299,7 @@ export class Country extends Component {
          </AppBar>
             <div>
              <Paper style={styles.paper}>
+             {/* <form className="Form"> */}
              <TextField
           id="standard-select-countryCode-native"
           select
@@ -1251,10 +1315,7 @@ export class Country extends Component {
               className: styles.menu,
            },
          }}
-       
-          helperText="Please select your country"
-         
-        >
+        helperText="Please select your country" >
           {COUNTRIES.map(country => (
             <option key={country.twoLetter} value={country.code}>
               {country.country}
@@ -1262,21 +1323,73 @@ export class Country extends Component {
           ))}
         </TextField>
         <br/>
+        {/* <div className={`form-group ${this.errorClass(this.state.formErrors.phone)}`}> */}
         <TextField  
-          type="tel"
+          type="mobileNo"
           label="Phone Number"
+          //defaultValue=
           value={phone}
           className="{textField}"
-          margin="normal"
+          helperText="Don't start with '0'"
           style={styles.textField2}
           onChange={this.handleChange('phone')}>
         </TextField>
+        {/* </div> */}
         <br/>
         <Button style={styles.button}
         //onClick={alert(code+phone)} 
+          type= "submit"
+          onClick={this.handleClickOpen}
+        
         >
           continue
         </Button>
+        <Dialog
+          open={this.state.open}
+          onClose={this.handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogTitle id="alert-dialog-title">{"Use Google's location service?"}</DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+             Do you want to continue with this number {this.state.code} {this.state.phone}
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={this.handleClose} color="primary">
+              Back
+            </Button>
+            <Button onClick={this.handleClickOpen1} color="primary" autoFocus>
+              Continue
+            </Button>
+          </DialogActions>
+        </Dialog>
+        <Dialog
+          open={this.state.open1}
+          onClose={this.handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogTitle id="alert-dialog-title">{"Use Google's location service?"}</DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+             Do you want to continue with this number 
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={this.handleClose1} color="primary">
+              Back
+            </Button>
+            <Button onClick={this.handleClose1} color="primary" autoFocus>
+              Continue
+            </Button>
+          </DialogActions>
+        </Dialog>
+       {/* </form> 
+            <div className="panel panel-default">
+           <FormErrors formErrors={this.state.formErrors} /> 
+        </div>  */}
             </Paper>
             </div>
           </React.Fragment>
@@ -1300,19 +1413,20 @@ export class Country extends Component {
            color:"inherit",
            background:" linear-gradient(0.25turn, #e91e63, #f06292)",
            fontWeight: "bold",
-           fontSize:39,
+           fontSize:30,
+           fontStretch:10,
          },
          textField1:{
            marginTop:50,
          },
          textField2: {
-          borderWidth: "1px",
+         // borderWidth: "1px",
           color:"#DAA520",
           borderStyle:"solid",
           borderTopColor:"transparent",
           borderLeftColor:"transparent",
           borderRightColor:"transparent",
-        borderBottomColor:"#e91e63",
+     //   borderBottomColor:"#e91e63",
         },
          menu: {
             border:1,

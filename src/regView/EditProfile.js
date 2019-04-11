@@ -1,8 +1,31 @@
 import React, { Component } from 'react'
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
-import {Avatar,Card,CardMedia,Tabs,Tab,Typography,TextField,AppBar,Toolbar,Button} from '@material-ui/core'
+import Card from '@material-ui/core/Card'
+import CardMedia from '@material-ui/core/CardMedia'
+import Tabs from '@material-ui/core/Tabs'
+import Tab from '@material-ui/core/Tab'
+import Typography from '@material-ui/core/Typography'
+import TextField from '@material-ui/core/TextField'
+import AppBar from '@material-ui/core/AppBar'
+import Button from '@material-ui/core/Button'
+import Toolbar from '@material-ui/core/Toolbar'
 import PropTypes from 'prop-types'
-import {FormGroup,Switch,FormControlLabel,InputAdornment,MenuItem} from '@material-ui/core'
+import MenuItem from '@material-ui/core/MenuItem'
+import Divider from '@material-ui/core/Divider'
+import Avatar from '@material-ui/core/Avatar'
+import InputAdornment from '@material-ui/core/InputAdornment'
+import Switch from '@material-ui/core/Switch'
+import Slider from '@material-ui/lab/Slider'
+import LensIcon from '@material-ui/icons/LensOutlined';
+import { ListItem,} from '@material-ui/core'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
+import ListSubheader from '@material-ui/core/ListSubheader'
+import List from '@material-ui/core/List'
+import ListItemText from '@material-ui/core/ListItemText'
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction'
+import PetsIcon from '@material-ui/icons/Pets'
+import DirectionsRunIcon from '@material-ui/icons/DirectionsRun'
+import MusicNoteIcon from '@material-ui/icons/MusicNote'
 
 function TabContainer(props) {
   return (
@@ -23,16 +46,25 @@ export class EditProfile extends Component {
     smoke:false,
     drink:false,
     drugs:false,
-    philosophy:false ,             
+    philosophy:false, 
+    photography:false,            
     soccer:false,
-    music:false  ,          
+    pop:false,          
     rock_n_Roll:false,
-    sport:false,                        
+    afroBeats:false,
+    indoorgames:false,    
+    hookup:false,
+    dating:false,
+    escort:false,                    
     swimming:false,
-    dogs:false,                         
+    gymnastics:false,
+    dogs:false,  
+    cats:false,
+    birds:false,
+    rabbits:false,                       
     movies:false,
     sightSeeing:false,              
-    games:false,
+    athletics:false,
     health:false,                       
     technology:false,
     aGe:'18',
@@ -41,9 +73,14 @@ export class EditProfile extends Component {
     gender:'male',
     bodyType:'slim',
     genDER:'female',
-    disTance:'1'
+    disTance:0,
+    values: 0,
   };
-
+  getMile=()=>{
+    let values = this.state.values
+   var x = Math.round(values)
+   return x
+  }
   handleChange = (event, value) => {
     this.setState({ value });
   };
@@ -71,8 +108,12 @@ export class EditProfile extends Component {
   handleChangeDistance = prop => event => {
     this.setState({ [prop]: event.target.value });
   };
+  handleChangeSlider = (event, disTance) => {
+    this.setState({ disTance });
+  };
   render() {
 const { value } = this.state;
+const { disTance } = this.state;
 const AGE = [
      { value:'18',
        label:'18'
@@ -356,413 +397,6 @@ const GendeR= [
   value:"male & female",
   label:"Male & Female"
 },
-]
-const DISTANCE=[
-  {
-    value:"1",
-    label:"1"
-  },
-  {
-    value:"2",
-    label:"2"
-  },
-  {
-    value:"3",
-    label:"3"
-  },
-  {
-    value:"4",
-    label:"4"
-  },
-  {
-    value:"5",
-    label:"5"
-  },
-  {
-    value:"6",
-    label:"6"
-  },
-  {
-    value:"7",
-    label:"7"
-  },
-  {
-    value:"8",
-    label:"8"
-  },
-  {
-    value:"9",
-    label:"9"
-  },
-  {
-    value:"10",
-    label:"10"
-  },
-  {
-    value:"11",
-    label:"11"
-  },
-  {
-    value:"12",
-    label:"12"
-  },
-  {
-    value:"13",
-    label:"13"
-  },
-  {
-    value:"14",
-    label:"14"
-  },
-  {
-    value:"15",
-    label:"15"
-  },
-
-  {
-    value:"16",
-    label:"16"
-  },
-  {
-    value:"17",
-    label:"17"
-  },
-  {
-    value:"18",
-    label:"18"
-  },
-  {
-    value:"19",
-    label:"19"
-  },
-  {
-    value:"20",
-    label:"20"
-  },
-  {
-    value:"21",
-    label:"21"
-  },
-  {
-    value:"22",
-    label:"22"
-  },
-  {
-    value:"23",
-    label:"23"
-  },
-  {
-    value:"24",
-    label:"24"
-  },
-  {
-    value:"25",
-    label:"25"
-  },
-  {
-    value:"26",
-    label:"26"
-  },
-  {
-    value:"27",
-    label:"27"
-  },
-  {
-    value:"28",
-    label:"28"
-  },
-  {
-    value:"29",
-    label:"29"
-  },
-  {
-    value:"30",
-    label:"30"
-  },
-  {
-    value:"31",
-    label:"31"
-  },
-  {
-    value:"32",
-    label:"32"
-  },
-  {
-    value:"33",
-    label:"33"
-  },
-
-  {
-    value:"34",
-    label:"34"
-  },
-  {
-    value:"35",
-    label:"35"
-  },
-  {
-    value:"36",
-    label:"36"
-  },
-  {
-    value:"37",
-    label:"37"
-  },
-  {
-    value:"38",
-    label:"38"
-  },
-  {
-    value:"39",
-    label:"39"
-  },
-  {
-    value:"40",
-    label:"40"
-  },
-  {
-    value:"41",
-    label:"41"
-  },
-  {
-    value:"42",
-    label:"42"
-  },
-  {
-    value:"43",
-    label:"43"
-  },
-  {
-    value:"44",
-    label:"44"
-  },
-  {
-    value:"45",
-    label:"45"
-  },
-  {
-    value:"46",
-    label:"46"
-  },
-  {
-    value:"47",
-    label:"47"
-  },
-  {
-    value:"48",
-    label:""
-  },
-  {
-    value:"49",
-    label:"49"
-  },
-  {
-    value:"50",
-    label:"50"
-  },
-  {
-    value:"51",
-    label:"51"
-  },
-
-  {
-    value:"52",
-    label:"52"
-  },
-  {
-    value:"53",
-    label:"53"
-  },
-  {
-    value:"54",
-    label:"54"
-  },
-  {
-    value:"55",
-    label:"55"
-  },
-  {
-    value:"56",
-    label:"56"
-  },
-  {
-    value:"57",
-    label:"57"
-  },
-  {
-    value:"58",
-    label:"58"
-  },
-  {
-    value:"59",
-    label:"59"
-  },
-  {
-    value:"60",
-    label:"60"
-  },
-  {
-    value:"61",
-    label:"61"
-  },
-  {
-    value:"62",
-    label:"62"
-  },
-  {
-    value:"63",
-    label:"63"
-  },
-  {
-    value:"64",
-    label:"64"
-  },
-  {
-    value:"65",
-    label:"65"
-  },
-  {
-    value:"66",
-    label:"66"
-  },
-  {
-    value:"67",
-    label:"67"
-  },
-  {
-    value:"68",
-    label:"68"
-  },
-  {
-    value:"69",
-    label:"69"
-  },
-
-  {
-    value:"70",
-    label:"70"
-  },
-  {
-    value:"71",
-    label:"71"
-  },
-  {
-    value:"72",
-    label:"72"
-  },
-  {
-    value:"73",
-    label:"73"
-  },
-  {
-    value:"74",
-    label:"74"
-  },
-  {
-    value:"75",
-    label:"75"
-  },
-  {
-    value:"76",
-    label:"76"
-  },
-  {
-    value:"77",
-    label:"77"
-  },
-  {
-    value:"78",
-    label:"78"
-  },
-  {
-    value:"79",
-    label:"79"
-  },
-  {
-    value:"80",
-    label:"80"
-  },
-  {
-    value:"81",
-    label:"81"
-  },
-  {
-    value:"82",
-    label:"82"
-  },
-  {
-    value:"83",
-    label:"83"
-  },
-  {
-    value:"84",
-    label:"84"
-  },
-  {
-    value:"85",
-    label:"85"
-  },
-  {
-    value:"86",
-    label:"86"
-  },
-  {
-    value:"87",
-    label:"87"
-  },
-
-  {
-    value:"88",
-    label:"88"
-  },
-  {
-    value:"89",
-    label:"89"
-  },
-  {
-    value:"90",
-    label:"90"
-  },
-  {
-    value:"91",
-    label:"91"
-  },
-  {
-    value:"92",
-    label:"92"
-  },
-  {
-    value:"93",
-    label:"93"
-  },
-  {
-    value:"94",
-    label:"94"
-  },
-  {
-    value:"95",
-    label:"95"
-  },
-  {
-    value:"96",
-    label:"96"
-  },
-  {
-    value:"97",
-    label:"97"
-  },
-  {
-    value:"98",
-    label:"98"
-  },
-  {
-    value:"99",
-    label:"99"
-  },
-  {
-    value:"100",
-    label:"100"
-  },
  
 ]
     return (
@@ -811,27 +445,31 @@ const DISTANCE=[
         </Tabs>
         {value === 0 && 
         <TabContainer>
-          <TextField 
-          style={styles.username}
-          placeholder="First Name"
-          label="First Name"
-          />
-          <br/>
-           <TextField 
-          style={styles.username}
-          placeholder="Last Name"
-          label="Last Name"
-          />
-          <br/>
-          <TextField 
-          style={styles.username}
-          placeholder="Username"
-          label="Username"
-          helperText="This is your display name"
-          />
-          <br/>
-          <TextField
-            label="Age"
+          <div style={{width:680, marginLeft:"auto", marginRight:"auto"}}>
+         <TextField style={styles.username}
+                       placeholder="First Name"
+                       label="First Name"
+                     //  label="First Name"
+              />
+            <br/>
+            <Divider variant="middle" />
+           <TextField style={styles.lastname} 
+                       placeholder="Last Name"
+                       label="Last Name"
+             />
+            <br/>
+            <Divider variant="middle" />
+            <TextField style={styles.lastname} 
+                       placeholder="Username"
+                       label="Username"
+             />
+        
+                   <Divider variant="middle" />
+                   <List subheader={<ListSubheader>Personal Profile</ListSubheader>} >
+            <ListItem>
+            <ListItemText primary="Age"/>
+            <ListItemSecondaryAction>
+            <TextField
             select
             value={this.state.aGe}
             onChange={this.handleChangeAge('aGe')}
@@ -845,9 +483,13 @@ const DISTANCE=[
             </MenuItem>
           ))}
             </TextField>
-           <br/>
-           <TextField
-             label="Ethnicity"
+            </ListItemSecondaryAction>
+            </ListItem>
+                   <Divider variant="middle" />
+            <ListItem>
+            <ListItemText primary="Ethnicity"/>
+            <ListItemSecondaryAction>
+            <TextField
             select
             value={this.state.ethniCity}
             onChange={this.handleChangeAge('ethniCity')}
@@ -859,9 +501,13 @@ const DISTANCE=[
             </MenuItem>
           ))}
            </TextField>
-           <br/>
-           <TextField
-             label="Height"
+            </ListItemSecondaryAction>
+            </ListItem>
+            <Divider variant="middle" />
+            <ListItem>
+            <ListItemText primary="Height"/>
+            <ListItemSecondaryAction>
+            <TextField
             select
             value={this.state.heiGht}
             onChange={this.handleChangeHeight('heiGht')}
@@ -876,8 +522,13 @@ const DISTANCE=[
             </MenuItem>
           ))}
            </TextField>
-           <TextField
-             label="BodyType"
+            </ListItemSecondaryAction>
+            </ListItem>
+            <Divider variant="middle" />
+            <ListItem>
+            <ListItemText primary="Body Type"/>
+            <ListItemSecondaryAction>
+            <TextField
             select
             value={this.state.bodyType}
             onChange={this.handleChangeBodyTypes('bodyType')}
@@ -887,9 +538,15 @@ const DISTANCE=[
                 {option.label}
               </MenuItem>
           ))} 
+
             </TextField>
+            </ListItemSecondaryAction>
+            </ListItem>
+            <Divider variant="middle" />
+            <ListItem>
+            <ListItemText primary="Gender"/>
+            <ListItemSecondaryAction>
             <TextField
-             label="Gender"
             select
             value={this.state.gender}
             onChange={this.handleChangeHeight('gender')}
@@ -898,126 +555,163 @@ const DISTANCE=[
             <MenuItem key={option.value} value={option.value}>
               {option.label}
             </MenuItem>
-          ))} </TextField>     
-           <textarea 
-           cols={50} rows={10} 
-            placeholder="Write about yourself......."
-            
-           style={{
-             position:"absolute",
-             top:"0",
-            bottom:"0",
-             left:"0",
-             right:"0",
-             height:280,
-             width:500,
-             alignItems: "center",
-             justifyContent: "center",
-             marginTop:520,
-             marginLeft:"auto",
-             marginRight:"auto",
-             backgroundColor:"transparent",
-             fontSize:30,
-             fontFamily:"courier new",
-             color:"white",
-             borderLeftColor:"transparent",
-             borderRightColor:"transparent",
-             borderTopColor:"transparent",
-             borderBottomColor:"black",
-             focus:{
-               outline:"none"
-             }
-          }}
-           />
+          ))} </TextField>   
+          <br/>  
+          <Divider variant="inset" /> 
+            </ListItemSecondaryAction>
+            </ListItem>
+        </List>
+       </div>
         </TabContainer>}
         {value === 1 && 
         <TabContainer> 
-          <FormGroup row>
-          <FormControlLabel
-          control={
+          <div style={{width:680, marginLeft:"auto", marginRight:"auto"}}>
+          <List subheader={<ListSubheader>Settings</ListSubheader>} >
+          <Divider component="li" variant="inset" />
+          <ListItem>
+            <ListItemText primary="Diet" style={styles.li}/>
+            <ListItemSecondaryAction>
             <Switch
               checked={this.state.diet}
               onChange={this.handleChanger('diet')}
               value="diet"
               color="secondary"
             />
-          }
-          label="Diet"/>
-            <FormControlLabel
-          control={
+            </ListItemSecondaryAction>
+            </ListItem>
+            <Divider component="li" variant="inset" />
+            <ListItem>
+            <ListItemText primary="Smoke" style={styles.li}/>
+            <ListItemSecondaryAction>
             <Switch
               checked={this.state.smoke}
               onChange={this.handleChanger('smoke')}
               value="smoke"
               color="secondary"
             />
-          }
-          label="Smoke"/>
-          
-            <FormControlLabel
-          control={
+            </ListItemSecondaryAction>
+          </ListItem>
+          <Divider component="li" variant="inset" />
+          <ListItem>
+            <ListItemText primary="Drink" style={styles.li}/>
+            <ListItemSecondaryAction>
             <Switch
               checked={this.state.drink}
               onChange={this.handleChanger('drink')}
               value="drink"
               color="secondary"
             />
-          }
-          label="Drink"/>
-          
-          <FormControlLabel
-          control={
+            </ListItemSecondaryAction>
+            </ListItem>
+            <Divider component="li" variant="inset" />
+            <ListItem>
+            <ListItemText primary="Drugs" style={styles.li}/>
+            <ListItemSecondaryAction>
             <Switch
               checked={this.state.drugs}
               onChange={this.handleChanger('drugs')}
               value="drugs"
               color="secondary"
             />
-          }
-          label="Drugs"/> 
-         </FormGroup>
-         <Typography variant='h6' color='inherit' style={styles.inter}>
-            Discovery Setting
-         </Typography>
-         <TextField
-          select
-          label="Sex"
-          value={this.state.genDER}
-          onChange={this.handleChangeGenDer('genDER')}
-          style={styles.select1}
-          helperText="Gender you are interested in">
-          {GendeR.map(option => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-          </TextField>
-          <TextField
-          select
-          label="Distance"
-          value={this.state.disTance}
-          onChange={this.handleChangeDistance('disTance')}
-          helperText="Maximum distance of Chat"
-          InputProps={{
-          endAdornment:<InputAdornment position="end">Mi</InputAdornment>}}
-          style={styles.select1}>
-          {DISTANCE.map(option => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-          </TextField>
-          <TextField
-          select
-          label="Age"
-          helperText="Age Range of Match"
-          endAdornment={<InputAdornment position="end">yrs</InputAdornment>}
-          style={styles.select1}/>
+            </ListItemSecondaryAction>
+            </ListItem>
+      </List>
+         <Divider variant="fullWidth" />
+         <br/>
+         <List subheader="Discovery Setting">
+         <Divider component="li" variant="inset" />
+           <ListItem>
+             <ListItemText primary="Maximum Distance of Chat"style={styles.li}/>
+             <ListItemText primary={disTance+'mi'}/>
+             <ListItemSecondaryAction>
+             <Slider
+               value={disTance}
+               min={1}
+               max={100}
+               step={1}
+               aria-labelledby="slider-icon"
+               onChange={this.handleChangeSlider}
+               style={styles.slide}
+               thumb={<LensIcon style={{ color: '#2196f3' }} />}
+        />
+             </ListItemSecondaryAction>
+             </ListItem>
+             <Divider component="li" variant="inset" />
+             <ListItem>
+               <ListItemText primary="Looking for" style={styles.li}/>
+               <ListItemSecondaryAction>
+                <TextField
+                 select
+                 value={this.state.genDER}
+                 onChange={this.handleChangeGenDer('genDER')}
+                 style={styles.selectSex}>
+                  {GendeR.map(option => (
+                   <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                   </MenuItem>
+                  ))}
+                </TextField>
+               </ListItemSecondaryAction>
+             </ListItem>
+             <Divider component="li" variant="inset" />
+             <ListItem>
+               <ListItemText primary="Age range of Match"/>
+               <ListItemSecondaryAction>
+                 <TextField
+                   select
+                   endAdornment={<InputAdornment position="end">yrs</InputAdornment>}
+                   style={styles.select1}/>
+               </ListItemSecondaryAction>
+             </ListItem>
+         </List>
+         <List subheader="Status">
+         <Divider component="li" variant="inset" />
+          <ListItem>
+          <ListItemText primary="Hookup" style={styles.li}/>
+            <Switch
+              checked={this.state.hookup}
+              onChange={this.handleChanger('hookup')}
+              style={styles.interes}
+              value="hookup"
+              color="secondary"
+            />
+          </ListItem>
+          <Divider component="li" variant="inset" />
+          <ListItem>
+          <ListItemText primary="Escort" style={styles.li}/>
+            <Switch
+              checked={this.state.escort}
+              onChange={this.handleChanger('escort')}
+              style={styles.interes}
+              value="escort"
+              color="secondary"
+            />
+          </ListItem>
+          <Divider component="li" variant="inset" />
+          <ListItem>
+          <ListItemText primary="Dating" style={styles.li}/>
+            <Switch
+              checked={this.state.dating}
+              onChange={this.handleChanger('dating')}
+              style={styles.interes}
+              value="dating"
+              color="secondary"
+            />
+          </ListItem>
+          <Divider component="li" variant="inset" />
+         </List>
+        </div >
         </TabContainer>}
         {value === 2 && 
         <TabContainer> 
-          <FormControlLabel
-          control={
+           <div style={{width:680, marginLeft:"auto", marginRight:"auto"}}>
+           <List subheader="Animals">
+           <ListItemIcon>
+                <PetsIcon/>
+           </ListItemIcon>
+           <Divider component="li" variant="inset" />
+           <ListItem>
+             <ListItemText primary="Dogs" style={styles.li}/>
             <Switch
               checked={this.state.dogs}
               onChange={this.handleChanger('dogs')}
@@ -1025,81 +719,82 @@ const DISTANCE=[
               value="dogs"
               color="secondary"
             />
-          }
-          label="Dogs"/>
-            <FormControlLabel
-          control={
+            </ListItem>
+            <Divider component="li" variant="inset" />
+            <ListItem>
+             <ListItemText primary="Cats" style={styles.li}/>
+            <Switch
+              checked={this.state.cats}
+              onChange={this.handleChanger('cats')}
+              style={styles.interes}
+              value="cats"
+              color="secondary"
+            />
+            </ListItem>
+            <Divider component="li" variant="inset" />
+            <ListItem>
+             <ListItemText primary="Rabbits" style={styles.li}/>
+            <Switch
+              checked={this.state.rabbits}
+              onChange={this.handleChanger('rabbits')}
+              style={styles.interes}
+              value="rabbits"
+              color="secondary"
+            />
+            </ListItem>
+            <Divider component="li" variant="inset" />
+            <ListItem>
+             <ListItemText primary="Birds" style={styles.li}/>
+            <Switch
+              checked={this.state.birds}
+              onChange={this.handleChanger('birds')}
+              style={styles.interes}
+              value="birds"
+              color="secondary"
+            />
+            </ListItem>
+            </List>
+            <Divider variant="fullWidth"/>
+            <List subheader="Sports">
+           <ListItemIcon>
+                <DirectionsRunIcon/>
+           </ListItemIcon>
+           <Divider component="li" variant="inset" />
+            <ListItem>
+            <ListItemText primary="Athletics" style={styles.li}/>
+            <Switch
+              checked={this.state.athletics}
+              onChange={this.handleChanger('athletics')}
+              style={styles.interes}
+              value="athletics"
+              color="secondary"
+            />
+            </ListItem>
+            <Divider component="li" variant="inset" />
+            <ListItem>
+            <ListItemText primary="Indoor Games" style={styles.li}/>
             <Switch
               checked={this.state.games}
-              onChange={this.handleChanger('games')}
+              onChange={this.handleChanger('indoorgames')}
               style={styles.interes}
-              value="games"
+              value="indoorgames"
               color="secondary"
             />
-          }
-          label="Games"/>
-          
-          <FormControlLabel
-          control={
-            <Switch
-              checked={this.state.health}
-              onChange={this.handleChanger('health')}
-              style={styles.interes}
-              value="health"
-              color="secondary"
-            />
-          }
-          label="Health"/> 
-         <FormControlLabel
-          control={
-            <Switch
-              checked={this.state.philosophy}
-              onChange={this.handleChanger('philosophy')}
-              style={styles.interes}
-              value="philosophy"
-              color="secondary"
-            />
-          }
-          label="Philosophy"/>
-          <br/>
-            <FormControlLabel
-          control={
-            <Switch
-              checked={this.state.music}
-              onChange={this.handleChanger('music')}
-              style={styles.interes}
-              value="music"
-              color="secondary"
-            />
-          }
-          label="Music"/>
-          
-            <FormControlLabel
-          control={
+            </ListItem>
+            <Divider component="li" variant="inset" />
+            <ListItem>
+       <ListItemText primary="Gymnastics" style={styles.li}/>
             <Switch
               checked={this.state.sport}
-              onChange={this.handleChanger('sport')}
+              onChange={this.handleChanger('gymnastics')}
               style={styles.interes}
-              value="sport"
+              value="gymnastics"
               color="secondary"
             />
-          }
-          label="Sport"/>
-          
-          <FormControlLabel
-          control={
-            <Switch
-              checked={this.state.sightSeeing}
-              onChange={this.handleChanger('sightSeeing')}
-              style={styles.interes}
-              value="sightSeeing"
-              color="secondary"
-            />
-          }
-          label="SightSeeing"/> 
-
-<FormControlLabel
-          control={
+           </ListItem>
+           <Divider component="li" variant="inset" />
+          <ListItem>
+          <ListItemText primary="Soccer" style={styles.li}/>
             <Switch
               checked={this.state.soccer}
               onChange={this.handleChanger('soccer')}
@@ -1107,23 +802,10 @@ const DISTANCE=[
               value="soccer"
               color="secondary"
             />
-          }
-          label="Soccer"/>
-          <br/>
-            <FormControlLabel
-          control={
-            <Switch
-              checked={this.state.rock_n_Roll}
-              onChange={this.handleChanger('rock_n_Roll')}
-              style={styles.interes}
-              value="rock_n_Roll"
-              color="secondary"
-            />
-          }
-          label="Rock_n_Roll"/>
-          
-            <FormControlLabel
-          control={
+            </ListItem>
+            <Divider component="li" variant="inset" />
+          <ListItem>
+          <ListItemText primary="Swimming" style={styles.li}/>
             <Switch
               checked={this.state.swimming}
               onChange={this.handleChanger('swimming')}
@@ -1131,11 +813,87 @@ const DISTANCE=[
               value="swimming"
               color="secondary"
             />
-          }
-          label="Swimming"/>
-          
-          <FormControlLabel
-          control={
+            </ListItem>
+            </List>
+            <Divider variant="fullWidth"/>
+            <List subheader="Music">
+              <ListItemIcon>
+                <MusicNoteIcon/>
+              </ListItemIcon>
+              <Divider component="li" variant="inset" />
+            <ListItem>
+          <ListItemText primary="Pop" style={styles.li}/>
+            <Switch
+              checked={this.state.pop}
+              onChange={this.handleChanger('pop')}
+              style={styles.interes}
+              value="pop"
+              color="secondary"
+            />
+            </ListItem>
+            <Divider component="li" variant="inset" />
+            <ListItem>
+            <ListItemText primary="Rock_n_Roll" style={styles.li}/>
+            <Switch
+              checked={this.state.rock_n_Roll}
+              onChange={this.handleChanger('rock_n_Roll')}
+              style={styles.interes}
+              value="rock_n_Roll"
+              color="secondary"
+            />  
+            </ListItem>
+            <Divider component="li" variant="inset" />
+            <ListItem>
+            <ListItemText primary="Afro Beats" style={styles.li}/>
+            <Switch
+              checked={this.state.rock_n_Roll}
+              onChange={this.handleChanger('afroBeats')}
+              style={styles.interes}
+              value="afroBeats"
+              color="secondary"
+            />  
+            </ListItem>
+            </List>
+             <Divider variant="fullWidth"/>
+            <List subheader="Others">
+            <Divider component="li" variant="inset" />
+            <ListItem>
+            <ListItemText primary="Health" style={styles.li}/>
+            <Switch
+              checked={this.state.health}
+              onChange={this.handleChanger('health')}
+              style={styles.interes}
+              value="health"
+              color="secondary"
+            />
+            </ListItem>
+            <Divider component="li" variant="inset" />
+        <ListItem>
+        <ListItemText primary="Philosophy" style={styles.li}/>
+            <Switch
+              checked={this.state.philosophy}
+              onChange={this.handleChanger('philosophy')}
+              style={styles.interes}
+              value="philosophy"
+              color="secondary"
+            />
+             </ListItem>
+             <Divider component="li" variant="inset" />
+         
+      
+          <ListItem>
+          <ListItemText primary="Sight Seeing" style={styles.li}/>
+            <Switch
+              checked={this.state.sightSeeing}
+              onChange={this.handleChanger('sightSeeing')}
+              style={styles.interes}
+              value="sightSeeing"
+              color="secondary"
+            />
+            </ListItem>
+         <Divider component="li" variant="inset" />
+         <ListItem>
+         <ListItemText primary="Movies" style={styles.li}/>
             <Switch
               checked={this.state.movies}
               onChange={this.handleChanger('movies')}
@@ -1143,11 +901,10 @@ const DISTANCE=[
               value="movies"
               color="secondary"
             />
-          }
-          label="Movies"/> 
-
-<FormControlLabel
-          control={
+            </ListItem>
+            <Divider component="li" variant="inset" />
+       <ListItem>
+       <ListItemText primary="Technology" style={styles.li}/>
             <Switch
               checked={this.state.technology}
               onChange={this.handleChanger('technology')}
@@ -1155,11 +912,21 @@ const DISTANCE=[
               value="technology "
               color="secondary"
             />
-          }
-          label="Technology"/>
-           
-         
-        </TabContainer>}
+            </ListItem>
+            <Divider component="li" variant="inset" />
+       <ListItem>
+       <ListItemText primary="Photography" style={styles.li}/>
+            <Switch
+              checked={this.state.technology}
+              onChange={this.handleChanger('photography')}
+              style={styles.interes}
+              value="photography "
+              color="secondary"
+            />
+            </ListItem>
+         </List>
+           </div>
+         </TabContainer>}
             </React.Fragment>
         </MuiThemeProvider>
     )
@@ -1201,18 +968,31 @@ username:{
 width:300,
 
 },
+lastname:{
+  width:300,
+  
+},
+slide:{
+  width:120,
+  //height:20
+},
 select:{
-  width:90,
+  width:190,
   margin:10
   
   },
   select1:{
-    width:90,
+    width:100,
     margin:10
     
     },
-    interes:{
-     // margin: 10
+    selectSex:{
+      width:150,
+      margin:10
+      
+      },
+    li:{
+    marginLeft: 55
     }
 }
 export default EditProfile

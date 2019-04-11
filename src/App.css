@@ -6,13 +6,13 @@
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
   pointer-events: none;
+  
 }
 
 .App-header {
   background-color:#212121; 
-  font-family: 'concetta kalvani thin';
+  font-family: 'flame fetish regular';
   font-weight: bold;
-  background: linear-gradient(0.25turn, #e91e63, #ebf8e1, #e91e63, #ebf8e1,#e91e63);
   background: linear-gradient(to right, #e91e63 2%, #f06292 2% 4%, #e91e63 4% 6%, #f06292 6% 8%, #e91e63 8% 10%,#f06292 10% 12%,#e91e63 12% 14%,#f06292 14% 16%,#e91e63 16% 18%,#f06292 18% 20%,#e91e63 20% 22%,#f06292 22% 24%, #e91e63 24% 26%,#f06292 26% 28%,#e91e63 28% 30%,#f06292 30% 32%,#e91e63 32% 34%,#f06292 34% 36%,#e91e63 36% 38%,#f06292 38% 40%
   , #e91e63 40% 42%, #f06292 42% 44%, #e91e63 44% 46%,#f06292 46% 48%,#e91e63 48% 50%,#f06292 50% 52%,#e91e63 52% 54%,#f06292 54% 56%,#e91e63 56% 58%,#f06292 58% 60%, #e91e63 60% 62%,#f06292 62% 64%,#e91e63 64% 66%,#f06292 66% 68%,#e91e63 68% 70%,#f06292 70% 72%,#e91e63 72% 74%,#f06292 74% 76%,#e91e63 76% 78%,#f06292 78% 80%,#e91e63 80% 82%,#f06292 82% 84%, #e91e63 84% 86%,#f06292 86% 88%,#e91e63 88% 90%,#f06292 90% 92%,#e91e63 92% 94%,#f06292 94% 96%,#e91e63 96% 98%,#f06292 98% 100%);
   min-height: 100vh;
