@@ -11,8 +11,8 @@ import DialogTitle from '@material-ui/core/DialogTitle'
 import DialogContent from '@material-ui/core/DialogContent'
 import DialogActions from '@material-ui/core/DialogActions'
 import DialogContentText from '@material-ui/core/DialogContentText'
-import EditProfile from '../regView/EditProfile'
-import {FormErrors} from './FormErrors'
+//import EditProfile from '../regView/EditProfile'
+//import {FormErrors} from './FormErrors'
 
 
 export class Country extends Component {
@@ -79,7 +79,7 @@ export class Country extends Component {
     this.setState({ open1: false });
   };
   render() {
-    const {code,phone} = this.state
+    let {code,phone,phoneNumber} = this.state
   
     
     const COUNTRIES = [
@@ -1344,6 +1344,9 @@ export class Country extends Component {
         >
           continue
         </Button>
+        <TextField
+        value ={phoneNumber}
+        onChange={this.handleChange('phone')}/>
         <Dialog
           open={this.state.open}
           onClose={this.handleClose}
@@ -1411,7 +1414,7 @@ export class Country extends Component {
          },
          appbar:{
            color:"inherit",
-           background:" linear-gradient(0.25turn, #e91e63, #f06292)",
+           background:" linear-gradient(0.25turn, #e91e63, #f06292)" ,
            fontWeight: "bold",
            fontSize:30,
            fontStretch:10,

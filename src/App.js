@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import './App.css';
-//import User from './logView/User'
-//import  Chat  from './chatBox/Chat'
+//import User from './regView/User'
+//import  MainPage  from './chatBox/MainPage'
+//import ImageUpload from './regView/ImageUpload'
 //import Country from './logView/Country'
-import EditProfile from './regView/EditProfile'
-
+//import Profile from './chatBox/Profile'
+//import EditProfile from './regView/EditProfile'
+//import LoginForm from './regView/Loginform'
+import Layout from './regView/Layout'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <header className="App-header">
-         <EditProfile/>
+         <Layout/>
         </header>
       </div>
     );

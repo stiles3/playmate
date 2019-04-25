@@ -1,0 +1,56 @@
+#side-bar{
+    box-sizing:border-box;
+    width:450px;
+    height:585px;
+    display:flex;
+    justify-content:space-around;
+    flex-direction:column}
+    #side-bar .users{
+        overflow-y:scroll;
+        background:#ffffff;
+        flex-grow:1}
+    #side-bar .users::-webkit-scrollbar-track{
+        -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.3);
+        background-color:#e91e63}
+    #side-bar .users::-webkit-scrollbar{
+        width:5px;
+        background-color:green}
+    #side-bar .users::-webkit-scrollbar-thumb{
+        background-color:#ffffff}
+    #side-bar .users .user{align-items:center;
+        display:flex;
+        height:66px;
+        justify-content:flex-start;
+        padding:18px 16px}
+    #side-bar .users .user.active,#side-bar .users .user:hover{background:#f08dae}
+    #side-bar .users .user:hover:not(.active){cursor:pointer}
+    #side-bar .users .user .user-info{
+        margin-left:15px;
+        font-weight: bold;
+        flex-grow:1}
+    #side-bar .users .user .user-info .last-message{
+        font-size:12px;
+        opacity:.56}
+    #side-bar .users .user .new-message{
+        height:100%;
+        display:flex;
+        align-items:center;
+        justify-content:center}
+    #side-bar .current-user{
+        align-items:center;
+        background: linear-gradient(0.25turn, #e91e63, #f06292);
+        box-sizing:border-box;
+        display:flex;
+        flex-direction:row;
+        height:10vh;
+        max-height:65px;
+        font-weight: bold;
+        justify-content:space-between;
+        padding-left:16px;
+        padding-right:16px}
+    #side-bar .current-user .logout{
+        align-items:center;
+        cursor:pointer;
+        display:flex;
+        justify-content:center;
+        font-size:2em}
